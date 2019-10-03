@@ -39,7 +39,7 @@ namespace XUnitTestProject1
         }
 
         [Fact]
-        public void Add_ModelStateValid_AddEmployeeCalledOnce()
+        public void Add_ModelStateValid_AddStudentCalledOnce()
         {
             Student std = null;
             _SR.Setup(r => r.SaveStudent(It.IsAny<Student>()))
@@ -74,7 +74,6 @@ namespace XUnitTestProject1
             Assert.Equal(std.Email, student.Email);
             Assert.Equal(std.EnrollmentNo, student.EnrollmentNo);
         }
-
 
     }
 
