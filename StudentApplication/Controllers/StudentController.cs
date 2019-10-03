@@ -40,7 +40,8 @@ namespace StudentApplication.Controllers
             StudentViewModel model = new StudentViewModel();
             if (id.HasValue)
             {
-                Student student = studentRepository.GetStudent(id.Value); if (student != null)
+                Student student = studentRepository.GetStudent(id.Value); 
+                if (student != null)
                 {
                     model.Id = student.Id;
                     model.FirstName = student.FirstName;
@@ -51,6 +52,7 @@ namespace StudentApplication.Controllers
             }
             return PartialView("~/Views/Student/_AddEditStudent.cshtml", model);
         }
+
         [HttpPost]
         public ActionResult AddEditStudent(long? id, StudentViewModel model)
         {
@@ -97,6 +99,8 @@ namespace StudentApplication.Controllers
             };
             return PartialView("~/Views/Student/_DeleteStudent.cshtml", model);
         }
+
+
         [HttpPost]
         public IActionResult DeleteStudent(long id, FormCollection form)
         {
